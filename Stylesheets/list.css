@@ -1,0 +1,41 @@
+.list{
+
+    width: auto;
+    height: auto;
+    z-index: 0;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+
+    background: rgba(255, 0, 0, 0.493);
+}
+
+.listButtons{
+    position: relative;
+
+    width: 350px;
+    height: 70px;
+
+    background-color: antiquewhite;
+}
+
+.delList{
+    
+    position: absolute;
+    right: 0%;
+    top: 5%
+
+}
+
+.add {
+
+    position: absolute;
+
+    left: 0%;
+    top: 5%;
+}

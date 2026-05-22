@@ -1,0 +1,24 @@
+#button{
+
+    background-color: aqua;
+
+    height: 35px;
+    width: 400px;
+    border: 3px;
+    border-color: black;
+}
+
+.mainContainer {
+    
+    position: absolute;
+    top: 10%;
+    
+    width: 99%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+
+}
+
+body{background-color: rgb(44, 44, 44);}
