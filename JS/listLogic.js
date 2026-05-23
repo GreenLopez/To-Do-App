@@ -1,6 +1,14 @@
+//Double check the functions of 'edit' and 'add task' buttons
+
+let showingPopUp = false;
+
 let editButton = null;
 let editInputField = document.getElementById("taskNameInputField");
-let showingPopUp = false;
+
+let addNewTaskButton = null;
+let addingNewTask = false;
+let newTask = null;
+let newTaskNameV = null;
 
 function main() {
 
@@ -12,10 +20,8 @@ function main() {
         }
 
         else if(event.target.classList.contains("add")){
-            let parent = addTask();
             
-            event.target.closest(".list").appendChild(parent);
-            
+            displayNewTaskPopUp(event);
         }
 
         else if(event.target.classList.contains("addList")){
@@ -33,7 +39,18 @@ function main() {
         }
 
         else if(event.target.classList.contains("taskNameButton")){
-            renameTask();
+            
+            if(showingPopUp == true && addingNewTask == false){
+                // still some bugs with the edit button. Please fix soon
+                renameTask();
+                console.log("Task renamed");
+            }
+
+            if(showingPopUp == true && addingNewTask == true){
+                
+                appendNewTask(event);
+                console.log("New task appended");
+            }
         }
 
         else if(event.target.classList.contains("editTaskCancelButton")){
@@ -44,9 +61,16 @@ function main() {
     });
 
     document.addEventListener("keydown", event =>{
-        if(event.key === "Enter"){
-           // still some bugs with the edit button. Please fix soon
+        if(event.key === "Enter" && showingPopUp == true && addingNewTask == false){
+           
             renameTask();
+            console.log("Task renamed");
+        }
+
+        if(event.key ==="Enter" && showingPopUp == true && addingNewTask == true){
+             
+            appendNewTask(event);
+            console.log("New task appended");
         }
 
         if(event.key === "Tab" && showingPopUp == true){
@@ -57,13 +81,27 @@ function main() {
         if(event.key === "Escape" && showingPopUp == true){
             cancelTaskEdit();
         }
+        
     });
 
-}//This is a VERY useful function. Copy and paste into AI to learn more
+}//This is a VERY useful function
 
-function addTask(){
+function createTask(event){
 
-    console.log("Task Added");
+   
+    /*Figure out why  
+    
+        let para = document.createElement("p");
+        para.classList.add("taskName")
+        para.innerText = getNewTaskName();
+
+        Didn't work...
+    */
+
+    newTaskNameV = getNewTaskName();
+    
+    //let taskName = getNewTaskName();
+    editInputField.value = "";
 
     let parent = document.createElement("div"); 
     parent.classList.add("task");
@@ -71,7 +109,8 @@ function addTask(){
     //create <p> element
     let para = document.createElement("p");
     para.classList.add("taskName")
-    para.textContent = "New Task";
+    para.innerText = newTaskNameV;
+    
 
     //Create delete button
     let delBtn = document.createElement("button");
@@ -90,6 +129,10 @@ function addTask(){
 
     /////assemble in correct order
     parent.append(para, delBtn, editBtn, checkbox);
+
+    
+
+    console.log("Name the new task...");
 
     
     return parent;
@@ -156,10 +199,11 @@ function editTaskPopUp(ev){
     document.querySelector(".editPopUp").style.display = "block";
     editInputField.focus();
     showingPopUp = true;
+    console.log("Popup...");
 }
 
 function getNewTaskName(){
-    console.log("Getting new task name 1...");
+    console.log("Getting new task name...");
 
     let newTaskName = document.querySelector("#taskNameInputField");
     newTaskName = newTaskName.value.trim();
@@ -167,16 +211,31 @@ function getNewTaskName(){
     cancelTaskEdit();
 
     console.log("New Task name is: " + newTaskName);
-    console.log("Getting new task name 2...");
 
     return newTaskName;
 }
 
 function renameTask(){
-    let newTaskName = getNewTaskName();
-    editButton.previousElementSibling.previousElementSibling.textContent = newTaskName;
+    let taskName = getNewTaskName();
+    editButton.previousElementSibling.previousElementSibling.textContent = taskName;
     showingPopUp = false;
     editInputField.value = "";
 }
 
-export{main, addTask, addNewList};
+function appendNewTask(event){
+    
+    newTask = createTask(event);
+
+    showingPopUp = false;
+    addingNewTask = false;
+    editInputField.value = "";
+    addNewTaskButton.closest(".list").append(newTask);
+}
+    
+function displayNewTaskPopUp(event){
+    addingNewTask = true;
+    addNewTaskButton = event.target;
+    editTaskPopUp(event);
+}
+
+export{main, createTask, addNewList};

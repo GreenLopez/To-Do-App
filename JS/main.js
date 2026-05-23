@@ -1,4 +1,4 @@
-import{main, addTask, addNewList}from './listLogic.js';
+import{main, createTask, addNewList}from './listLogic.js';
 
 document.addEventListener("DOMContentLoaded", ()=>{
   ////
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   let body = document.getElementsByTagName("body")[0];
   
   btn.addEventListener("mousedown", event => {
-    window.electronAPI.logToTerminal("Button Was Clicked!");
+    //window.electronAPI.logToTerminal("Button Was Clicked!");
 
     btn.style.backgroundColor = "blue";
     btn.style.borderColor = "black";
