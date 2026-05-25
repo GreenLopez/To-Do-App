@@ -188,6 +188,11 @@ function deleteList(ev){
     console.log("List Deleted");
 }
 
+function deleteAllLists(ev){
+    let lists = document.querySelectorAll(".list");
+    lists.forEach(list => list.remove());
+}
+
 function cancelTaskEdit(){
     document.querySelector(".editPopUp").style.display = "none";
     showingPopUp = false;

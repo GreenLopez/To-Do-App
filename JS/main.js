@@ -1,22 +1,20 @@
 import{main, createTask, addNewList}from './listLogic.js';
 
+let btn = document.getElementById("button");
+let letters = document.getElementById("Header1");
+let body = document.getElementsByTagName("body")[0];
+
 document.addEventListener("DOMContentLoaded", ()=>{
   ////
   
   main();
   //addTask();
   //editTask();
-
-  const btn = document.getElementById("button");
-  let letters = document.getElementById("Header1");
-  let body = document.getElementsByTagName("body")[0];
   
-  btn.addEventListener("mousedown", event => {
+  document.addEventListener("mousedown", event => {
     //window.electronAPI.logToTerminal("Button Was Clicked!");
 
-    btn.style.backgroundColor = "blue";
-    btn.style.borderColor = "black";
-    btn.style.borderWidth = "4px";
+    clickAddListBtn(event);
 
     /*if(body.style.backgroundColor == "white" || body.style.backgroundColor == ""){
       body.style.backgroundColor = "#222";
@@ -30,18 +28,46 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   btn.addEventListener("mouseup", event =>{
 
-    btn.style.backgroundColor = "aqua";
-    btn.style.borderWidth = "2px";
+    mouseUpAddListBtn(event);
 
   });
 
   btn.addEventListener("mouseover", event =>{
-    btn.style.backgroundColor = "gray";
+    mouseOverAddListBtn(event);
   });
 
   btn.addEventListener("mouseleave", event =>{
-    btn.style.backgroundColor = null;
+    mouseLeaveAddListBtn(event);
   });
 
   ///
 });
+
+function clickAddListBtn(event){
+
+  if(event.target == btn){
+    btn.style.backgroundColor = "blue";
+    btn.style.borderColor = "black";
+    btn.style.borderWidth = "4px";      
+  }
+}
+
+function mouseUpAddListBtn(event){
+
+  if(event.target == btn){
+    btn.style.backgroundColor = "aqua";
+    btn.style.borderWidth = "2px";
+  }
+}
+
+function mouseOverAddListBtn(event){
+  if(event.target == btn){
+    btn.style.backgroundColor = "gray";
+  }
+}
+
+function mouseLeaveAddListBtn(event){
+  if(event.target == btn){
+    btn.style.backgroundColor = null;
+  }
+}
