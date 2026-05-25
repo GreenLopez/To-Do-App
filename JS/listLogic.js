@@ -10,6 +10,8 @@ let addingNewTask = false;
 let newTask = null;
 let newTaskNameV = null;
 
+let delAllListsBtn = document.getElementById("deleteAllLists");
+
 function main() {
 
     document.addEventListener("click", event => {
@@ -32,6 +34,14 @@ function main() {
 
         else if(event.target.classList.contains("delList")){
             deleteList(event);
+        }
+
+        else if(event.target == delAllListsBtn){
+        
+            let lists = document.querySelectorAll(".list");
+            lists.forEach(list => list.remove());
+
+            console.log("All lists deleted...");
         }
 
         else if(event.target.classList.contains("edit")){
@@ -189,8 +199,9 @@ function deleteList(ev){
 }
 
 function deleteAllLists(ev){
-    let lists = document.querySelectorAll(".list");
-    lists.forEach(list => list.remove());
+
+    
+    
 }
 
 function cancelTaskEdit(){

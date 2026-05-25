@@ -55,9 +55,9 @@ function checkMouseDown(event){
   }
 
   if(event.target == delAllListsBtn){
-    delAllListsBtn.style.backgroundColor = "rgb(183, 65, 14)"; //rust color
+    delAllListsBtn.style.backgroundColor = "rgb(102, 34, 5)"; //rust color
     delAllListsBtn.style.borderColor = "black";
-    delAllListsBtn.style.borderWidth = "4px";      
+    delAllListsBtn.style.borderWidth = "4px";
 
     console.log("Orange down!");
   }
