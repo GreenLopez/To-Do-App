@@ -1,0 +1,71 @@
+.doubleCheckPopUp{
+    display: none;
+}
+
+#subDCPContainer{
+
+    position: fixed;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;    
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px;
+
+    background: rgba(0,0,0,0.5);
+
+}
+
+.doubleCheckPopUpBox{
+
+    position: relative;
+
+    background-color: whitesmoke;
+    padding: 10px;
+}
+
+#DCPUYes{
+    background-color: red;
+    color: white;
+
+    font-size: medium;
+    font-weight: 500;
+
+    width: 90px;
+    height: 50px;
+
+    position: absolute;
+    left: 10%;
+    bottom: 0.5%
+
+}
+
+#DCPUNo{
+    background-color: blue;
+    color: white;
+
+    font-size: medium;
+    font-weight: 500;
+
+    width: 90px;
+    height: 50px;
+
+    position: absolute;
+    right: 10%;
+    bottom: 0.5%;
+
+    
+}
+
+#DCPUPara{
+    position: inherit;
+    top: -40%;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: 'Arial Narrow Bold', sans-serif;
+}

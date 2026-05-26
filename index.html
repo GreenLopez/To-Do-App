@@ -6,6 +6,7 @@
         <link rel = "stylesheet" href = "Stylesheets/style.css">
         <link rel = "stylesheet" href = "Stylesheets/list.css">
         <link rel = "stylesheet" href = "Stylesheets/task.css">
+        <link rel = stylesheet href = "Stylesheets/doubleCheckPopUp.css">
         <script type="module" src = "JS/main.js" defer></script>
     </head>
 
@@ -24,7 +25,21 @@
                         <button class = "editTaskCancelButton">Cancel</button>
                     </div>
             </div>
-        </div>    
+        </div> 
+        
+        <div class = "doubleCheckPopUp">
+
+            <div id = "subDCPContainer">
+
+                <div class = "doubleCheckPopUpBox">
+                        <p id = "DCPUPara">Are you sure you want to delete all lists?</p> 
+                        <button class = "doubleCheckPopUpButton" id = "DCPUYes">Yes</button>
+                        <button class = "doubleCheckPopUpButton" id = "DCPUNo">No</button>
+                </div>
+
+            </div>
+            
+        </div>
 
         <div class = "mainContainer">
             

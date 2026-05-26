@@ -1,6 +1,7 @@
 //Double check the functions of 'edit' and 'add task' buttons
 
 let showingPopUp = false;
+let delALPU = false;
 
 let editButton = null;
 let editInputField = document.getElementById("taskNameInputField");
@@ -38,10 +39,15 @@ function main() {
 
         else if(event.target == delAllListsBtn){
         
-            let lists = document.querySelectorAll(".list");
-            lists.forEach(list => list.remove());
+            displayDelAllListsPopUp();
+        }
 
-            console.log("All lists deleted...");
+        else if(event.target == document.getElementById("DCPUNo")){
+            cancelDelAllLists();
+        }
+
+        else if(event.target == document.getElementById("DCPUYes")){
+            deleteAllLists();
         }
 
         else if(event.target.classList.contains("edit")){
@@ -198,9 +204,30 @@ function deleteList(ev){
     console.log("List Deleted");
 }
 
-function deleteAllLists(ev){
+function displayDelAllListsPopUp(){
+    let popUp = document.querySelector(".doubleCheckPopUp");
+    popUp.style.display = "block";
 
-    
+    delALPU = true;
+}
+
+function cancelDelAllLists(){
+    let popUp = document.querySelector(".doubleCheckPopUp");
+    popUp.style.display = "none";
+
+    delALPU = false;
+}
+
+function deleteAllLists(){
+
+    let lists = document.querySelectorAll(".list");
+    lists.forEach(list => list.remove());
+
+    let popUp = document.querySelector(".doubleCheckPopUp");
+    popUp.style.display = "none";
+
+
+    console.log("All lists deleted...");
     
 }
 
