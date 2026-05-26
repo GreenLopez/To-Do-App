@@ -125,7 +125,7 @@ function createTask(event){
 
     //create <p> element
     let para = document.createElement("p");
-    para.classList.add("taskName")
+    para.classList.add("taskName");
     para.innerText = newTaskNameV;
     
 
