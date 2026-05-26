@@ -1,4 +1,5 @@
 //Double check the functions of 'edit' and 'add task' buttons
+//Prevent tabbing when in the "Delete All Lists" pop-up menu
 
 let showingPopUp = false;
 let delALPU = false;
@@ -208,14 +209,14 @@ function displayDelAllListsPopUp(){
     let popUp = document.querySelector(".doubleCheckPopUp");
     popUp.style.display = "block";
 
-    delALPU = true;
+    showingPopUp = true;
 }
 
 function cancelDelAllLists(){
     let popUp = document.querySelector(".doubleCheckPopUp");
     popUp.style.display = "none";
 
-    delALPU = false;
+    showingPopUp = false;
 }
 
 function deleteAllLists(){
@@ -226,7 +227,7 @@ function deleteAllLists(){
     let popUp = document.querySelector(".doubleCheckPopUp");
     popUp.style.display = "none";
 
-
+    showingPopUp = false;
     console.log("All lists deleted...");
     
 }
