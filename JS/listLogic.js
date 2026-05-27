@@ -12,6 +12,9 @@ let addingNewTask = false;
 let newTask = null;
 let newTaskNameV = null;
 
+let addingNewList = false;
+let showingNewListPU = false;
+
 let delAllListsBtn = document.getElementById("deleteAllLists");
 
 function main() {
@@ -28,10 +31,18 @@ function main() {
             displayNewTaskPopUp(event);
         }
 
-        else if(event.target.classList.contains("addList")){
-            let parent = addNewList();
+        //////////////////////////////////////////////////////////////////////
 
-            document.querySelector(".mainContainer").appendChild(parent);
+        else if(event.target.classList.contains("addList")){
+            displayCreateListPopUp();
+        }
+
+        else if(event.target == document.getElementById("createListButton")){
+            createList();
+        }
+
+        else if(event.target == document.getElementById("createListCancelButton")){
+            exitDisplayCreateListPopUp();
         }
 
         else if(event.target.classList.contains("delList")){
@@ -43,6 +54,8 @@ function main() {
             displayDelAllListsPopUp();
         }
 
+        ////////////////////////////////////////////////////////////////////////////
+
         else if(event.target == document.getElementById("DCPUNo")){
             cancelDelAllLists();
         }
@@ -50,6 +63,8 @@ function main() {
         else if(event.target == document.getElementById("DCPUYes")){
             deleteAllLists();
         }
+
+        ////////////////////////////////////////////////////////////////////////////
 
         else if(event.target.classList.contains("edit")){
             editTaskPopUp(event);
@@ -97,6 +112,16 @@ function main() {
 
         if(event.key === "Escape" && showingPopUp == true){
             cancelTaskEdit();
+        }
+
+        ///////////////////////////////////////////////////
+
+        if(event.key === "Enter" && showingNewListPU == true && addingNewList == true){
+            createList();
+        }
+
+        if(event.key === "Escape" && showingNewListPU == true && addingNewList == true){
+            exitDisplayCreateListPopUp();
         }
         
     });
@@ -281,5 +306,32 @@ function displayNewTaskPopUp(event){
     addNewTaskButton = event.target;
     editTaskPopUp(event);
 }
+
+////////////////////////////////////////////
+
+function createList(){
+    let parent = addNewList();
+    document.querySelector(".mainContainer").appendChild(parent);
+
+    addingNewList = false;
+    exitDisplayCreateListPopUp();
+}
+
+function displayCreateListPopUp(){
+    document.querySelector(".createListPU").style.display = "block";
+    document.getElementById("createListInputField").focus();
+
+    addingNewList = true;
+    showingNewListPU = true;
+}
+
+function exitDisplayCreateListPopUp(){
+    document.querySelector(".createListPU").style.display = "none";
+
+    addingNewList = false;
+    showingNewListPU = false;
+}
+
+
 
 export{main, createTask, addNewList};
