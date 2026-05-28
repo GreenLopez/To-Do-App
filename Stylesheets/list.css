@@ -23,6 +23,8 @@
     width: 350px;
     height: 70px;
 
+    margin-top: -25px;
+
     /* background-color: antiquewhite; */
 }
 
@@ -40,4 +42,14 @@
 
     left: 0%;
     top: 5%;
+}
+
+.listName{
+    
+    margin-top: -20px;
+
+    width: 250px;
+    height: 40px;
+
+    font-size: medium;
 }

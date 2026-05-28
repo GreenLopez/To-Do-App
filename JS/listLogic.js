@@ -182,6 +182,7 @@ function createTask(event){
 
 function addNewList(){
 
+    let listName = getNewListName();
     console.log("List added");
 
     let parent = document.querySelector(".mainContainer");
@@ -191,6 +192,10 @@ function addNewList(){
 
     let buttonBox = document.createElement("div");
     buttonBox.classList.add("listButtons");
+
+    let listNameBtn = document.createElement("button");
+    listNameBtn.classList.add("listName");
+    listNameBtn.textContent = listName;
 
     let addBtn = document.createElement("button");
     addBtn.classList.add("add");
@@ -219,7 +224,7 @@ function addNewList(){
 
     buttonBox.append(addBtn, delListBtn);
     task.append(para, delBtn, editBtn, checkbox);
-    list.append(buttonBox, task);
+    list.append(listNameBtn, buttonBox, task);
     //parent.appendChild(task);
 
     return list;
@@ -309,6 +314,15 @@ function displayNewTaskPopUp(event){
 
 ////////////////////////////////////////////
 
+function getNewListName(){
+    console.log("Getting new list name...");
+    
+    let newListName = document.getElementById("createListInputField");
+    newListName = newListName.value.trim();
+
+    return newListName;
+}
+
 function createList(){
     let parent = addNewList();
     document.querySelector(".mainContainer").appendChild(parent);
@@ -327,11 +341,16 @@ function displayCreateListPopUp(){
 
 function exitDisplayCreateListPopUp(){
     document.querySelector(".createListPU").style.display = "none";
+    document.getElementById("createListInputField").value = "";
 
     addingNewList = false;
     showingNewListPU = false;
 }
 
+function displayEditListPopUp(){
+    document.querySelector(".editListPU").style.display = "none";
 
+    //Finish this function
+}
 
 export{main, createTask, addNewList};

@@ -8,6 +8,7 @@
         <link rel = "stylesheet" href = "Stylesheets/task.css">
         <link rel = stylesheet href = "Stylesheets/doubleCheckPopUp.css">
         <link rel = stylesheet href = "Stylesheets/createListPopUp.css">
+        <link rel = stylesheet href = "Stylesheets/editListPopUp.css">
         <script type="module" src = "JS/main.js" defer></script>
     </head>
 
@@ -58,11 +59,30 @@
 
         </div>
 
+        <div class="editListPU">
+
+            <div id="subEditListPU">
+
+                <div class="editListPUBox">
+                    <label for="editListInputField">
+                        <input type="text" id="editListInputField" class="nameList" maxlength="100">
+                    </label>
+                    <button id="editListButton">Edit List Name</button>
+                    <button id="editListCancelButton">Cancel</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
         <div class = "mainContainer">
             
             
 
             <div class = "list" id = "L2">
+
+                <button class = "listName">Change List Name</button>
 
                 <div class = "listButtons">
                     <button class = "add">Add Task</button>
