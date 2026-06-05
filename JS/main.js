@@ -80,11 +80,11 @@ function checkMouseUp(event){
 
 function checkMouseHover(event){
   if(event.target == btn){
-    btn.style.backgroundColor = "gray";
+    btn.style.backgroundColor = "white";
   }
 
   if(event.target == delAllListsBtn){
-    delAllListsBtn.style.backgroundColor = "gray";
+    delAllListsBtn.style.backgroundColor = "white";
     console.log("Orange Hover!");
   }
 }

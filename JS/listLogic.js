@@ -434,7 +434,7 @@ function editListName(event){
 function listNameColorChangeHover(event){
     
     if(event.target.classList.contains("listName")){
-        event.target.style.backgroundColor = "darkgrey";
+        event.target.style.backgroundColor = "white";
     }
 }
 
