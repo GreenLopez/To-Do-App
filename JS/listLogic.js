@@ -17,6 +17,7 @@ let showingNewListPU = false;
 
 let editingList = false;
 let showingEditListPU = false;
+let editListButton = null;
 
 let delAllListsBtn = document.getElementById("deleteAllLists");
 
@@ -61,10 +62,13 @@ function main() {
 
         else if(event.target.classList.contains("listName")){
             displayEditListPopUp();
+            editListButton = event.target;
         }
 
         else if(event.target == document.getElementById("editListButton")){
             console.log("Editing list name...");
+            editListName(event);
+            exitEditListPopUp();
         }
 
         else if(event.target == document.getElementById("editListCancelButton")){
@@ -150,6 +154,8 @@ function main() {
 
         if(event.key === "Enter" && showingEditListPU == true && editingList == true){
             console.log("Editing list name...");
+            editListName(event);
+            exitEditListPopUp();
         }
 
         if(event.key === "Escape" && showingEditListPU == true && editingList == true){
@@ -401,6 +407,18 @@ function exitEditListPopUp(){
 
     editingList = false;
     showingEditListPU = false;
+}
+
+function getEditedListName(){
+    let editedListName = document.getElementById("editListInputField").value.trim();
+
+    return editedListName;
+}
+
+function editListName(event){
+    let listName = getEditedListName();
+
+    editListButton.textContent = listName;
 }
 
 export{main, createTask, addNewList};
