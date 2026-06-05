@@ -15,6 +15,9 @@ let newTaskNameV = null;
 let addingNewList = false;
 let showingNewListPU = false;
 
+let editingList = false;
+let showingEditListPU = false;
+
 let delAllListsBtn = document.getElementById("deleteAllLists");
 
 function main() {
@@ -52,6 +55,20 @@ function main() {
         else if(event.target == delAllListsBtn){
         
             displayDelAllListsPopUp();
+        }
+
+        ////////////////////////////////////////////////////////////////////////////
+
+        else if(event.target.classList.contains("listName")){
+            displayEditListPopUp();
+        }
+
+        else if(event.target == document.getElementById("editListButton")){
+            console.log("Editing list name...");
+        }
+
+        else if(event.target == document.getElementById("editListCancelButton")){
+            exitEditListPopUp();
         }
 
         ////////////////////////////////////////////////////////////////////////////
@@ -125,6 +142,21 @@ function main() {
         }
 
         if(event.key === "Tab" && showingNewListPU == true){
+            event.preventDefault();
+            console.log("Prevented Tabing...");
+        }
+
+        ////////////////////////////////////////////////////////////////////////
+
+        if(event.key === "Enter" && showingEditListPU == true && editingList == true){
+            console.log("Editing list name...");
+        }
+
+        if(event.key === "Escape" && showingEditListPU == true && editingList == true){
+            exitEditListPopUp();
+        }
+
+        if(event.key == "Tab" && showingEditListPU == true){
             event.preventDefault();
             console.log("Prevented Tabing...");
         }
@@ -352,10 +384,23 @@ function exitDisplayCreateListPopUp(){
     showingNewListPU = false;
 }
 
-function displayEditListPopUp(){
-    document.querySelector(".editListPU").style.display = "none";
+////////////////////////////////////////////////////////
 
+function displayEditListPopUp(){
+    document.querySelector(".editListPU").style.display = "block";
+    document.getElementById("editListInputField").focus();
+
+    editingList = true;
+    showingEditListPU = true;
     //Finish this function
+}
+
+function exitEditListPopUp(){
+    document.querySelector(".editListPU").style.display = "none";
+    document.getElementById("editListInputField").value = "";
+
+    editingList = false;
+    showingEditListPU = false;
 }
 
 export{main, createTask, addNewList};
