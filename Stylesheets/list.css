@@ -46,10 +46,13 @@
 
 .listName{
     
+    background-color: rgb(175, 148, 248);
+
     margin-top: -20px;
 
     width: 250px;
     height: 40px;
 
     font-size: medium;
+    font-weight: bold;
 }

@@ -169,6 +169,14 @@ function main() {
         
     });
 
+    document.addEventListener("mouseover", event =>{
+        listNameColorChangeHover(event);
+    });
+
+    document.addEventListener("mouseout", event =>{
+        listNameColorChangeLeave(event);
+    });
+
 }//This is a VERY useful function
 
 function createTask(event){
@@ -248,8 +256,8 @@ function addNewList(){
     delListBtn.classList.add("delList");
     delListBtn.textContent = "Delete List"
 
-    let task = document.createElement("div");
-    task.classList.add("task");
+    // let task = document.createElement("div");
+    // task.classList.add("task");
 
     let para = document.createElement("p");
     para.textContent = "New Task";
@@ -266,8 +274,8 @@ function addNewList(){
     checkbox.type = "checkbox";
 
     buttonBox.append(addBtn, delListBtn);
-    task.append(para, delBtn, editBtn, checkbox);
-    list.append(listNameBtn, buttonBox, task);
+    //task.append(para, delBtn, editBtn, checkbox);
+    list.append(listNameBtn, buttonBox);
     //parent.appendChild(task);
 
     return list;
@@ -419,6 +427,22 @@ function editListName(event){
     let listName = getEditedListName();
 
     editListButton.textContent = listName;
+}
+
+/////////////////////////////////////////////////////////////
+
+function listNameColorChangeHover(event){
+    
+    if(event.target.classList.contains("listName")){
+        event.target.style.backgroundColor = "darkgrey";
+    }
+}
+
+function listNameColorChangeLeave(event){
+
+    if(event.target.classList.contains("listName")){
+        event.target.style.backgroundColor = null;
+    }
 }
 
 export{main, createTask, addNewList};
