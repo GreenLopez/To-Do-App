@@ -123,6 +123,11 @@ function main() {
         if(event.key === "Escape" && showingNewListPU == true && addingNewList == true){
             exitDisplayCreateListPopUp();
         }
+
+        if(event.key === "Tab" && showingNewListPU == true){
+            event.preventDefault();
+            console.log("Prevented Tabing...");
+        }
         
     });
 
