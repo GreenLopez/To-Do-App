@@ -7,25 +7,12 @@ let body = document.getElementsByTagName("body")[0];
 let delAllListsBtn = document.getElementById("deleteAllLists");
 
 document.addEventListener("DOMContentLoaded", ()=>{
-  ////
   
   main();
-  //addTask();
-  //editTask();
   
   document.addEventListener("mousedown", event => {
-    //window.electronAPI.logToTerminal("Button Was Clicked!");
 
     checkMouseDown(event);
-
-    /*if(body.style.backgroundColor == "white" || body.style.backgroundColor == ""){
-      body.style.backgroundColor = "#222";
-      //body.style.backgroundColor = "white";
-    }
-    else{
-      body.style.backgroundColor = "white";
-      //body.style.backgroundColor = "#222";
-    }*/
   });
 
   document.addEventListener("mouseup", event =>{
@@ -58,8 +45,6 @@ function checkMouseDown(event){
     delAllListsBtn.style.backgroundColor = "rgb(102, 34, 5)"; //rust color
     delAllListsBtn.style.borderColor = "black";
     delAllListsBtn.style.borderWidth = "4px";
-
-    console.log("Orange down!");
   }
 }
 
@@ -73,8 +58,6 @@ function checkMouseUp(event){
   if(event.target == delAllListsBtn){
     delAllListsBtn.style.backgroundColor = "rgb(207, 130, 13)"; // A shade of orange
     delAllListsBtn.style.borderWidth = "2px";
-
-    console.log("Orange up!");
   }
 }
 
@@ -85,7 +68,6 @@ function checkMouseHover(event){
 
   if(event.target == delAllListsBtn){
     delAllListsBtn.style.backgroundColor = "white";
-    console.log("Orange Hover!");
   }
 }
 
@@ -96,8 +78,5 @@ function checkMouseLeave(event){
 
   if(event.target == delAllListsBtn){
     delAllListsBtn.style.backgroundColor = "rgb(207, 130, 13)";
-    console.log("Orange Leave!");
   }
 }
-
-/////////////////////////////////////////////////////////////////////

@@ -1,6 +1,3 @@
-//Double check the functions of 'edit' and 'add task' buttons
-//Prevent tabbing when in the "Delete All Lists" pop-up menu
-
 let showingPopUp = false;
 let delALPU = false;
 
