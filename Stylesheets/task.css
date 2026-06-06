@@ -47,14 +47,16 @@
     height: 100%;
     z-index: 2;
 
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-evenly;
-    padding: 15px;
+    padding: 15px; 
+
+    
 }
 
 .editPopUp{
-    display: none;
+    /* display: flex;
     z-index: 2;
 
     position: fixed;
@@ -62,14 +64,67 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0,0,0,0.5); */
+
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 100%; 
+    top: 0;
+    left: 0;    
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px;
+
     background: rgba(0,0,0,0.5);
 }
 
 .editPopUp-content{
 
+    height: 15%;
+    width: 25%;
+
+    position: relative;
+
     background-color: whitesmoke;
-    padding: 20px;
-    width: 300px;
-    margin: 200px auto;
-    border-radius: 8px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.taskNameButton{
+    background-color: red;
+    color: white;
+
+    font-size: medium;
+    font-weight: 500;
+
+    width: 90px;
+    height: 50px;
+
+    position: absolute;
+    left: 10%;
+    bottom: 5%;
+}
+
+.editTaskCancelButton{
+    background-color: blue;
+    color: white;
+
+    font-size: medium;
+    font-weight: 500;
+
+    width: 90px;
+    height: 50px;
+
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
 }

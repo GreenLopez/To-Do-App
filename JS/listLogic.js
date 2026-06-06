@@ -314,14 +314,14 @@ function deleteAllLists(){
 }
 
 function cancelTaskEdit(){
-    document.querySelector(".editPopUp").style.display = "none";
+    document.querySelector(".editPopUp-container").style.display = "none";
     showingPopUp = false;
 }
 
 function editTaskPopUp(ev){
 
     editButton = ev.target;
-    document.querySelector(".editPopUp").style.display = "block";
+    document.querySelector(".editPopUp-container").style.display = "block";
     editInputField.focus();
     showingPopUp = true;
     console.log("Popup...");
