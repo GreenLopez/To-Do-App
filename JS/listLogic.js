@@ -33,6 +33,7 @@ function main() {
         else if(event.target.classList.contains("add")){
             
             displayNewTaskPopUp(event);
+            document.querySelector(".taskNameButton").textContent = "Add New Task";
         }
 
         //////////////////////////////////////////////////////////////////////
@@ -89,6 +90,7 @@ function main() {
 
         else if(event.target.classList.contains("edit")){
             editTaskPopUp(event);
+            document.querySelector(".taskNameButton").textContent = "Edit Task Name";
         }
 
         else if(event.target.classList.contains("taskNameButton")){
