@@ -128,3 +128,9 @@
     right: 10%;
     bottom: 5%;
 }
+
+#taskNameInputField{
+    height: 25px;
+    width: 200px;
+    margin-bottom: 80px;
+}
