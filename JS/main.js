@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
   });
 
-  ///
 });
 
 function checkMouseDown(event){

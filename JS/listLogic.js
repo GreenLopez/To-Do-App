@@ -180,16 +180,6 @@ function main() {
 
 function createTask(event){
 
-   
-    /*Figure out why  
-    
-        let para = document.createElement("p");
-        para.classList.add("taskName")
-        para.innerText = getNewTaskName();
-
-        Didn't work...
-    */
-
     newTaskNameV = getNewTaskName();
     
     //let taskName = getNewTaskName();
@@ -405,7 +395,6 @@ function displayEditListPopUp(){
 
     editingList = true;
     showingEditListPU = true;
-    //Finish this function
 }
 
 function exitEditListPopUp(){
